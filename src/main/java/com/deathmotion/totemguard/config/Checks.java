@@ -81,6 +81,9 @@ public class Checks {
     @Comment("\nElytra Swapper Mods")
     private ElytraSwapper elytraSwapper = new ElytraSwapper();
 
+    @Comment("\nFreecam (https://modrinth.com/mod/freecam)")
+    private Freecam freecam = new Freecam();
+
     public AbstractCheckSettings getCheckSettings(String checkName) {
         return switch (checkName) {
             case "AutoTotemA" -> autoTotemA;
@@ -99,6 +102,7 @@ public class Checks {
             case "Tweakeroo" -> tweakeroo;
             case "AccurateBlockPlacement" -> accurateBlockPlacementReborn;
             case "ElytraSwapper" -> elytraSwapper;
+            case "Freecam" -> freecam;
             default ->
                     throw new IllegalStateException("Check " + checkName + " does not have a corresponding configuration.");
         };
@@ -324,6 +328,15 @@ public class Checks {
     public static class ElytraSwapper extends CheckSettings {
 
         public ElytraSwapper() {
+            super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
+        }
+    }
+
+    @Configuration
+    @Getter
+    public static class Freecam extends CheckSettings {
+
+        public Freecam() {
             super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
         }
     }
