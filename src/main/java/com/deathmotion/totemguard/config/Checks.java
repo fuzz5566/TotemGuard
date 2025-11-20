@@ -69,17 +69,33 @@ public class Checks {
     @Comment("\nManualTotemA")
     private ManualTotemA manualTotemA = new ManualTotemA();
 
-    @Comment("\n\n======\n Mod Detections\n======\n\n Tweakeroo (https://modrinth.com/mod/tweakeroo)")
-    private Tweakeroo tweakeroo = new Tweakeroo();
-
-    @Comment("\nAccurate Block Placement Reborn (https://modrinth.com/mod/accurate-block-placement-reborn)")
+    @Comment("\n\n======\n Mod Detections\n======\n\n Accurate Block Placement Reborn (https://modrinth.com/mod/accurate-block-placement-reborn)")
     private AccurateBlockPlacement accurateBlockPlacementReborn = new AccurateBlockPlacement();
+
+    @Comment("\nAutoClicker (https://modrinth.com/mod/auto-clicker)\nWARNING: This uses the 'keybinding.toggle-hold' trigger. " +
+            "This has not been extensively tested and due to it being fairly generic it may flag other mods.")
+    private AutoClicker autoClicker = new AutoClicker();
+
+    @Comment("\nAuto Totem Light (https://modrinth.com/mod/auto-totem-light)")
+    private AutoTotemLight autoTotemLight = new AutoTotemLight();
+
+    @Comment("\nBridging Mod (https://modrinth.com/mod/bridging-mod)")
+    private BridgingMod bridgingMod = new BridgingMod();
 
     @Comment("\nElytra Swapper Mods")
     private ElytraSwapper elytraSwapper = new ElytraSwapper();
 
     @Comment("\nFreecam (https://modrinth.com/mod/freecam)")
     private Freecam freecam = new Freecam();
+
+    @Comment("\nSmartBlockPlacement (https://modrinth.com/mod/smartblockplacement)")
+    private SmartBlockPlacement smartBlockPlacement = new SmartBlockPlacement();
+
+    @Comment("\nSyncac (https://modrinth.com/mod/syncac)")
+    private Syncac syncac = new Syncac();
+
+    @Comment("\nTweakeroo (https://modrinth.com/mod/tweakeroo)")
+    private Tweakeroo tweakeroo = new Tweakeroo();
 
     public AbstractCheckSettings getCheckSettings(String checkName) {
         return switch (checkName) {
@@ -95,10 +111,15 @@ public class Checks {
             case "BadPacketsC" -> badPacketsC;
             case "BadPacketsD" -> badPacketsD;
             case "ManualTotemA" -> manualTotemA;
-            case "Tweakeroo" -> tweakeroo;
             case "AccurateBlockPlacement" -> accurateBlockPlacementReborn;
+            case "AutoClicker" -> autoClicker;
+            case "AutoTotemLight" -> autoTotemLight;
+            case "BridgingMod" -> bridgingMod;
             case "ElytraSwapper" -> elytraSwapper;
             case "Freecam" -> freecam;
+            case "SmartBlockPlacement" -> smartBlockPlacement;
+            case "Syncac" -> syncac;
+            case "Tweakeroo" -> tweakeroo;
             default ->
                     throw new IllegalStateException("Check " + checkName + " does not have a corresponding configuration.");
         };
@@ -284,18 +305,36 @@ public class Checks {
 
     @Configuration
     @Getter
-    public static class Tweakeroo extends CheckSettings {
+    public static class AccurateBlockPlacement extends CheckSettings {
 
-        public Tweakeroo() {
+        public AccurateBlockPlacement() {
             super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
         }
     }
 
     @Configuration
     @Getter
-    public static class AccurateBlockPlacement extends CheckSettings {
+    public static class AutoClicker extends CheckSettings {
 
-        public AccurateBlockPlacement() {
+        public AutoClicker() {
+            super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
+        }
+    }
+
+    @Configuration
+    @Getter
+    public static class AutoTotemLight extends CheckSettings {
+
+        public AutoTotemLight() {
+            super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
+        }
+    }
+
+    @Configuration
+    @Getter
+    public static class BridgingMod extends CheckSettings {
+
+        public BridgingMod() {
             super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
         }
     }
@@ -314,6 +353,33 @@ public class Checks {
     public static class Freecam extends CheckSettings {
 
         public Freecam() {
+            super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
+        }
+    }
+
+    @Configuration
+    @Getter
+    public static class SmartBlockPlacement extends CheckSettings {
+
+        public SmartBlockPlacement() {
+            super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
+        }
+    }
+
+    @Configuration
+    @Getter
+    public static class Syncac extends CheckSettings {
+
+        public Syncac() {
+            super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
+        }
+    }
+
+    @Configuration
+    @Getter
+    public static class Tweakeroo extends CheckSettings {
+
+        public Tweakeroo() {
             super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
         }
     }
