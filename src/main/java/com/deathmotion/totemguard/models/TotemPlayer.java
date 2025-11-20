@@ -46,6 +46,10 @@ public class TotemPlayer implements TotemUser {
     public final User user;
 
     public Player bukkitPlayer;
+
+    private boolean hasLoggedIn;
+    private boolean modChecksRan;
+
     public boolean firstChunkReceived;
     public boolean delayedChecksRan;
     public boolean isUsingLunarClient;
@@ -79,6 +83,11 @@ public class TotemPlayer implements TotemUser {
             return;
         }
 
+        hasLoggedIn = true;
+        if (firstChunkReceived) {
+            runDelayedChecks();
+        }
+
         FoliaScheduler.getAsyncScheduler().runNow(TotemGuard.getInstance(), (o -> {
             databasePlayer = TotemGuard.getInstance().getDatabaseProvider().getPlayerRepository().retrieveOrRefreshPlayer(this);
         }));
@@ -97,8 +106,11 @@ public class TotemPlayer implements TotemUser {
     }
 
     public void runFirstChunkLoadedChecks() {
-        if (firstChunkReceived) return;
         firstChunkReceived = true;
+        if (!hasLoggedIn) return;
+
+        if (modChecksRan) return;
+        modChecksRan = true;
 
         scheduleCheck(() -> {
             checkManager.getGenericCheck(BadPacketsB.class).handle();
