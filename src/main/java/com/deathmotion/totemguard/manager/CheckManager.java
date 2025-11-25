@@ -90,18 +90,8 @@ public class CheckManager {
     }
 
     public void triggerSignChecks() {
-        long delayMs = 0L;
-        final long ticksBetweenChecks = 2L;
-
         for (SignCheck check : signChecks.values()) {
-            FoliaScheduler.getAsyncScheduler().runDelayed(
-                    TotemGuard.getInstance(),
-                    o -> check.placeSign(),
-                    delayMs,
-                    TimeUnit.MILLISECONDS
-            );
-
-            delayMs += ticksBetweenChecks * 50;
+            check.placeSign();
         }
     }
 
