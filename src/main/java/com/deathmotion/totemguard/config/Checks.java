@@ -18,6 +18,7 @@
 
 package com.deathmotion.totemguard.config;
 
+import com.deathmotion.totemguard.checks.impl.mods.QuickElytra;
 import com.deathmotion.totemguard.interfaces.AbstractCheckSettings;
 import de.exlll.configlib.Comment;
 import de.exlll.configlib.Configuration;
@@ -72,12 +73,9 @@ public class Checks {
     @Comment("\n\n======\n Mod Detections\n======\n\n Accurate Block Placement Reborn (https://modrinth.com/mod/accurate-block-placement-reborn)")
     private AccurateBlockPlacement accurateBlockPlacementReborn = new AccurateBlockPlacement();
 
-    @Comment("\nAutoClicker (https://modrinth.com/mod/auto-clicker)\nWARNING: This uses the 'keybinding.toggle-hold' trigger. " +
-            "This has not been extensively tested and due to it being fairly generic it may flag other mods.")
+    @Comment("\nAutoClicker (https://modrinth.com/mod/auto-clicker) (https://modrinth.com/mod/autoclicker)" +
+            "\nExperimental: Uses the generic 'keybinding.toggle-hold' translation key which may flag other mods.")
     private AutoClicker autoClicker = new AutoClicker();
-
-    @Comment("\nAuto Totem Light (https://modrinth.com/mod/auto-totem-light)")
-    private AutoTotemLight autoTotemLight = new AutoTotemLight();
 
     @Comment("\nBridging Mod (https://modrinth.com/mod/bridging-mod)")
     private BridgingMod bridgingMod = new BridgingMod();
@@ -87,6 +85,13 @@ public class Checks {
 
     @Comment("\nFreecam (https://modrinth.com/mod/freecam)")
     private Freecam freecam = new Freecam();
+
+    @Comment("\nProPlacer (https://modrinth.com/mod/pro-placer)" +
+            "\nExperimental: Uses the generic 'key.fast_placement' translation key which may flag other mods.")
+    private ProPlacer proPlacer = new ProPlacer();
+
+    @Comment("\nQuickElytra (https://modrinth.com/mod/quick_hotkeys)")
+    private QuickElytra quickElytra = new QuickElytra();
 
     @Comment("\nSmartBlockPlacement (https://modrinth.com/mod/smartblockplacement)")
     private SmartBlockPlacement smartBlockPlacement = new SmartBlockPlacement();
@@ -113,10 +118,11 @@ public class Checks {
             case "ManualTotemA" -> manualTotemA;
             case "AccurateBlockPlacement" -> accurateBlockPlacementReborn;
             case "AutoClicker" -> autoClicker;
-            case "AutoTotemLight" -> autoTotemLight;
             case "BridgingMod" -> bridgingMod;
             case "ElytraSwapper" -> elytraSwapper;
             case "Freecam" -> freecam;
+            case "ProPlacer" -> proPlacer;
+            case "QuickElytra" -> quickElytra;
             case "SmartBlockPlacement" -> smartBlockPlacement;
             case "Syncac" -> syncac;
             case "Tweakeroo" -> tweakeroo;
@@ -323,15 +329,6 @@ public class Checks {
 
     @Configuration
     @Getter
-    public static class AutoTotemLight extends CheckSettings {
-
-        public AutoTotemLight() {
-            super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
-        }
-    }
-
-    @Configuration
-    @Getter
     public static class BridgingMod extends CheckSettings {
 
         public BridgingMod() {
@@ -353,6 +350,24 @@ public class Checks {
     public static class Freecam extends CheckSettings {
 
         public Freecam() {
+            super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
+        }
+    }
+
+    @Configuration
+    @Getter
+    public static class ProPlacer extends CheckSettings {
+
+        public ProPlacer() {
+            super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
+        }
+    }
+
+    @Configuration
+    @Getter
+    public static class QuickElytra extends CheckSettings {
+
+        public QuickElytra() {
             super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
         }
     }

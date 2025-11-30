@@ -59,10 +59,11 @@ public class CheckManager {
         signChecks = new ImmutableClassToInstanceMap.Builder<SignCheck>()
                 .put(AccurateBlockPlacement.class, new AccurateBlockPlacement(player))
                 .put(AutoClicker.class, new AutoClicker(player))
-                .put(AutoTotemLight.class, new AutoTotemLight(player))
                 .put(BridgingMod.class, new BridgingMod(player))
                 .put(ElytraSwapper.class, new ElytraSwapper(player))
                 .put(Freecam.class, new Freecam(player))
+                .put(ProPlacer.class, new ProPlacer(player))
+                .put(QuickElytra.class, new QuickElytra(player))
                 .put(SmartBlockPlacement.class, new SmartBlockPlacement(player))
                 .put(Syncac.class, new Syncac(player))
                 .build();

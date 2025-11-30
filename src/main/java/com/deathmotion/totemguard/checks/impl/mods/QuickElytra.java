@@ -24,11 +24,15 @@ import com.deathmotion.totemguard.models.TotemPlayer;
 
 import java.util.List;
 
-@CheckData(name = "AutoTotemLight", description = "Usage of the Auto Totem Light mod")
-public class AutoTotemLight extends ModCheck {
-    public AutoTotemLight(TotemPlayer player) {
+@CheckData(name = "QuickElytra", description = "Usage of the Quick Elytra mod")
+public class QuickElytra extends ModCheck {
+    public QuickElytra(TotemPlayer player) {
         super(player, List.of(
-                "key.autototemlight.totem_swap"
+                "key.glitchifyed.quick_hotkeys.equip_elytra"
         ));
     }
 }
+
+
+
+

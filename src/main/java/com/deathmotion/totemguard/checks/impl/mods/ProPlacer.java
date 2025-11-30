@@ -24,12 +24,13 @@ import com.deathmotion.totemguard.models.TotemPlayer;
 
 import java.util.List;
 
-@CheckData(name = "AutoClicker", description = "Usage of Auto Clicker mods")
-public class AutoClicker extends ModCheck {
-    public AutoClicker(TotemPlayer player) {
+@CheckData(name = "ProPlacer", description = "Usage of the Pro Placer mod")
+public class ProPlacer extends ModCheck {
+    public ProPlacer(TotemPlayer player) {
         super(player, List.of(
-                "keybinding.toggle-hold",
-                "binds.autoclicker"
+                "key.fast_placement"
         ));
     }
 }
+
+
