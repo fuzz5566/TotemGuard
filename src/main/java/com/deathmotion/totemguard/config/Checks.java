@@ -80,6 +80,9 @@ public class Checks {
     @Comment("\nBridging Mod (https://modrinth.com/mod/bridging-mod)")
     private BridgingMod bridgingMod = new BridgingMod();
 
+    @Comment("\nDokkosHotbarOptimizer (https://modrinth.com/mod/dokkos-hotbar-optimizer)")
+    private DokkosHotbarOptimizer dokkosHotbarOptimizer = new DokkosHotbarOptimizer();
+
     @Comment("\nElytra Swapper Mods")
     private ElytraSwapper elytraSwapper = new ElytraSwapper();
 
@@ -119,6 +122,7 @@ public class Checks {
             case "AccurateBlockPlacement" -> accurateBlockPlacementReborn;
             case "AutoClicker" -> autoClicker;
             case "BridgingMod" -> bridgingMod;
+            case "DokkosHotbarOptimizer" -> dokkosHotbarOptimizer;
             case "ElytraSwapper" -> elytraSwapper;
             case "Freecam" -> freecam;
             case "ProPlacer" -> proPlacer;
@@ -332,6 +336,14 @@ public class Checks {
     public static class BridgingMod extends CheckSettings {
 
         public BridgingMod() {
+            super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
+        }
+    }
+
+    @Configuration
+    @Getter
+    public static class DokkosHotbarOptimizer extends CheckSettings {
+        public DokkosHotbarOptimizer() {
             super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
         }
     }
