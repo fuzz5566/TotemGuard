@@ -53,6 +53,7 @@ public class CheckManager {
                 .put(BadPacketsA.class, new BadPacketsA(player))
                 .put(BadPacketsC.class, new BadPacketsC(player))
                 .put(AutoTotemD.class, new AutoTotemD(player))
+                .put(DokkosHotbarOptimizer.class, new DokkosHotbarOptimizer(player))
                 .put(Tweakeroo.class, new Tweakeroo(player))
                 .build();
 
