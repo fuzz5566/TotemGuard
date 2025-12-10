@@ -30,6 +30,8 @@ import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPl
 @CheckData(name = "DokkosHotbarOptimizer", description = "Usage of the DokkosHotbarOptimizer mod")
 public class DokkosHotbarOptimizer extends Check implements PacketCheck {
 
+    private boolean detected;
+
     public DokkosHotbarOptimizer(final TotemPlayer player) {
         super(player);
     }
@@ -49,6 +51,10 @@ public class DokkosHotbarOptimizer extends Check implements PacketCheck {
         if (channel == null || !channel.toLowerCase().contains("dokkos-hotbar-optimizer")) {
             return;
         }
+
+        if (detected) return;
+        detected = true;
+
         fail();
     }
 }
