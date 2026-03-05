@@ -55,6 +55,9 @@ public class Checks {
     @Comment("\nAutoTotemG")
     private AutoTotemG autoTotemG = new AutoTotemG();
 
+    @Comment("\nAutoTotemH")
+    private AutoTotemH autoTotemH = new AutoTotemH();
+
     @Comment("\nBadPacketsA")
     private BadPacketsA badPacketsA = new BadPacketsA();
 
@@ -114,6 +117,7 @@ public class Checks {
             case "AutoTotemE" -> autoTotemE;
             case "AutoTotemF" -> autoTotemF;
             case "AutoTotemG" -> autoTotemG;
+            case "AutoTotemH" -> autoTotemH;
             case "BadPacketsA" -> badPacketsA;
             case "BadPacketsB" -> badPacketsB;
             case "BadPacketsC" -> badPacketsC;
@@ -261,6 +265,25 @@ public class Checks {
         private int clickToSwapTimeDifference = 75;
 
         public AutoTotemG() {
+            super(false, 4);
+        }
+    }
+
+    @Configuration
+    @Getter
+    public static class AutoTotemH extends CheckSettings {
+        @Comment("\nMinimum Check Time: Sets the minimum time (in ms) before a difference will be added to the interval.")
+        private int minCheckTime = 1500;
+
+        @Comment("\nStandard Deviation Threshold: The threshold for the standard deviation.")
+        private double StandardDeviationThreshold = 35.0;
+
+        @Comment("\nMean Threshold: The threshold for the mean.")
+        private double MeanThreshold = 100.0;
+
+        @Comment("\nConsecutive Low SD Count: The amount of consecutive low standard deviations before flagging.")
+        private int ConsecutiveLowSDCount = 2;
+        public AutoTotemH() {
             super(false, 4);
         }
     }
