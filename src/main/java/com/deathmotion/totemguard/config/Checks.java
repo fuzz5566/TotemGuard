@@ -108,6 +108,9 @@ public class Checks {
     @Comment("\nTweakeroo (https://modrinth.com/mod/tweakeroo)")
     private Tweakeroo tweakeroo = new Tweakeroo();
 
+    @Comment("\nQuickEXP (https://modrinth.com/mod/quick-exp)")
+    private QuickEXP quickexp = new QuickEXP();
+
     public AbstractCheckSettings getCheckSettings(String checkName) {
         return switch (checkName) {
             case "AutoTotemA" -> autoTotemA;
@@ -134,6 +137,7 @@ public class Checks {
             case "SmartBlockPlacement" -> smartBlockPlacement;
             case "Syncac" -> syncac;
             case "Tweakeroo" -> tweakeroo;
+            case "QuickEXP" -> quickexp;
             default ->
                     throw new IllegalStateException("Check " + checkName + " does not have a corresponding configuration.");
         };
@@ -430,6 +434,15 @@ public class Checks {
     public static class Tweakeroo extends CheckSettings {
 
         public Tweakeroo() {
+            super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
+        }
+    }
+
+    @Configuration
+    @Getter
+    public static class QuickEXP extends CheckSettings {
+
+        public QuickEXP() {
             super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
         }
     }
