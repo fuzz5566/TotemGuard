@@ -111,6 +111,9 @@ public class Checks {
     @Comment("\nQuickEXP (https://modrinth.com/mod/quick-exp)")
     private QuickEXP quickexp = new QuickEXP();
 
+    @Comment("\nFastXP (https://modrinth.com/mod/fast-xp)")
+    private FastXP fastxp = new FastXP();
+
     public AbstractCheckSettings getCheckSettings(String checkName) {
         return switch (checkName) {
             case "AutoTotemA" -> autoTotemA;
@@ -138,6 +141,7 @@ public class Checks {
             case "Syncac" -> syncac;
             case "Tweakeroo" -> tweakeroo;
             case "QuickEXP" -> quickexp;
+            case "FastXP" -> fastxp;
             default ->
                     throw new IllegalStateException("Check " + checkName + " does not have a corresponding configuration.");
         };
@@ -443,6 +447,15 @@ public class Checks {
     public static class QuickEXP extends CheckSettings {
 
         public QuickEXP() {
+            super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
+        }
+    }
+
+    @Configuration
+    @Getter
+    public static class FastXP extends CheckSettings {
+
+        public FastXP() {
             super(false, 1, List.of("kick %player% [TotemGuard] Unauthorised Mod Detected"));
         }
     }
