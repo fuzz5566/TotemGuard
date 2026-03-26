@@ -29,7 +29,7 @@ dependencies {
 
 group = "com.deathmotion.totemguard"
 description = "TotemGuard is a simple anti-cheat that tries to detect players who are using AutoTotem."
-val fullVersion = "2.1.2"
+val fullVersion = "2.1.3"
 val snapshot = true
 
 fun getVersionMeta(includeHash: Boolean): String {
@@ -123,7 +123,7 @@ tasks {
     // 1.17           = Java 16
     // 1.18 - 1.20.4  = Java 17
     // 1-20.5+        = Java 21
-    val version = "1.21.10"
+    val version = "1.21.11"
     val javaVersion = JavaLanguageVersion.of(21)
 
     val jvmArgsExternal = listOf(
@@ -132,9 +132,9 @@ tasks {
     )
 
     val sharedPlugins = runPaper.downloadPluginsSpec {
-        url("https://cdn.modrinth.com/data/HYKaKraK/versions/7igcjlxa/packetevents-spigot-2.10.1.jar")
-        url("https://github.com/ViaVersion/ViaVersion/releases/download/5.5.1/ViaVersion-5.5.1.jar")
-        url("https://github.com/ViaVersion/ViaBackwards/releases/download/5.5.1/ViaBackwards-5.5.1.jar")
+        url("https://cdn.modrinth.com/data/HYKaKraK/versions/vSdJEwlO/packetevents-spigot-2.11.1.jar")
+        url("https://github.com/ViaVersion/ViaVersion/releases/download/5.7.0/ViaVersion-5.7.0.jar")
+        url("https://github.com/ViaVersion/ViaBackwards/releases/download/5.7.0/ViaBackwards-5.7.0.jar")
     }
 
     runServer {
@@ -147,8 +147,8 @@ tasks {
 
         downloadPlugins {
             from(sharedPlugins)
-            url("https://github.com/EssentialsX/Essentials/releases/download/2.21.2/EssentialsX-2.21.2.jar")
-            url("https://download.luckperms.net/1602/bukkit/loader/LuckPerms-Bukkit-5.5.15.jar")
+            url("https://cdn.modrinth.com/data/hXiIvTyT/versions/Oa9ZDzZq/EssentialsX-2.21.2.jar")
+            url("https://cdn.modrinth.com/data/Vebnzrzj/versions/OrIs0S6b/LuckPerms-Bukkit-5.5.17.jar")
         }
 
         jvmArgs = jvmArgsExternal
