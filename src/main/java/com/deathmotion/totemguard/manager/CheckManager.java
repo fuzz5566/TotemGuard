@@ -55,6 +55,7 @@ public class CheckManager {
                 .put(AutoTotemD.class, new AutoTotemD(player))
                 .put(DokkosHotbarOptimizer.class, new DokkosHotbarOptimizer(player))
                 .put(Tweakeroo.class, new Tweakeroo(player))
+                .put(QuickEXP.class, new QuickEXP(player))
                 .build();
 
         signChecks = new ImmutableClassToInstanceMap.Builder<SignCheck>()
